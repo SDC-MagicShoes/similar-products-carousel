@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const fs = promise.promisifyAll(require('fs'));
 
 const connection = mysql.createConnection({
-  host: 'airjordans.clnbgl2ynxgf.us-east-1.rds.amazonaws.com',
+  host: 'localhost',
   port: '3306',
   user: 'warpv',
   password: 'justdoit',
