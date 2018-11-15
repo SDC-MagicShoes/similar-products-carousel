@@ -7,11 +7,10 @@ click left and right arrows to adjust position of carousel.
 click on a product card to navigate to that item's full product page.
 
 ## API Routes
-
-Create  Post('/:product_sku/similar') Creates a new related image for a shoe.
-Read    Get('/:product_sku/similar') Gets all related shoe images for shoe
-Update  Put('/:product_sku/similar') Updates a related image for a shoe.  
-Delete  Delete('/:product_sku/similar') Deletes a related image for a shoe.
+- Create  Post('/:product_sku/similar') Creates a new related image for a shoe.
+- Read    Get('/:product_sku/similar') Gets all related shoe images for shoe
+- Update  Put('/:product_sku/similar') Updates a related image for a shoe.  
+- Delete  Delete('/:product_sku/similar') Deletes a related image for a shoe.
 
 # REQUIREMENTS
 0] use node -v: 10.12.0
