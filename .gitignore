@@ -18,5 +18,7 @@ coverage/
 ##server tests ##
 server/__tests__/
 
-
-
+## data seed files ##
+database_postgres/csvImageSeed.csv
+database_postgres/csvShoeSeed.csv
+database_mongoDB/jsonShoes.json
