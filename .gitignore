@@ -22,3 +22,6 @@ server/__tests__/
 database_postgres/csvImageSeed.csv
 database_postgres/csvShoeSeed.csv
 database_mongoDB/jsonShoes.json
+
+## query result screenshots ##
+query_results_SS/

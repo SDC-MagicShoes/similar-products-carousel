@@ -26,6 +26,7 @@ const generate = (num, callback) => {
         `https://s3-us-west-1.amazonaws.com/shoepicturesmock/${randIdx[3]}`
       ]
     };
+
     shoe = JSON.stringify(shoe);
     i++;
     if (!file.write(shoe)) {
