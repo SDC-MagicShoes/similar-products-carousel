@@ -8,7 +8,7 @@ let k = 1;
 
 const generateShoes = (num, callback) => {
   while (i < num + 1) {
-    let shoe = `${i}, MagicShoes_${i}\n`;
+    let shoe = `${i},MagicShoes_${i}\n`;
     i++;
     if (!shoeFile.write(shoe)) {
       return;
@@ -21,7 +21,7 @@ const generateShoes = (num, callback) => {
 const generateImages = (num, callback) => {
   while (j < num + 1) {
     const randIdx = Math.floor(Math.random() * 1000) + 1;
-    let image = `${j}, https://s3-us-west-1.amazonaws.com/shoepicturesmock/${randIdx}, ${k}\n`;
+    let image = `${j},https://s3-us-west-1.amazonaws.com/shoepicturesmock/${randIdx},${k}\n`;
 
     if (j % 4 === 0) {
       k++;
@@ -36,8 +36,8 @@ const generateImages = (num, callback) => {
 };
 
 const writeHeaders = () => {
-  shoeFile.write('sid, name\n');
-  imageFile.write('id, url, relShoeId\n');
+  shoeFile.write('sid,name\n');
+  imageFile.write('id,url,relShoeId\n');
 };
 
 shoeFile.on('drain', () => {
