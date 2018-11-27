@@ -33,7 +33,7 @@ const Card = props => (
           <span className="product">{ props.product.product_name }</span>
           <span>{ props.product.product_line }</span>
           {
-            props.product.price_sale !== null
+            props.product.price_sale !== 'null'
               ? (
                 <div className="test">
                   <span className="price slashed">{ `$${props.product.price_full}` }</span>

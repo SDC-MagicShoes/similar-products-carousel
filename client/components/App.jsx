@@ -12,7 +12,7 @@ class App extends React.Component {
     this.slideRight = this.slideRight.bind(this);
     this.switchShoe = this.switchShoe.bind(this);
     this.state = {
-      productSku: '310805-408',
+      productSku: 100,
       products: [],
       slideFrom: 0,
       slideTo: 0,

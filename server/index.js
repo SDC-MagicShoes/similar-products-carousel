@@ -1,32 +1,51 @@
+const newrelic = require('newrelic');
 const express = require('express');
 const path = require('path');
 const compress = require('compression');
-const db = require('../database/model.js');
+const db = require('../database_postgres/index.js');
 
 const app = express();
 const port = 8081;
 
 app.use(compress());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static('public'));
 
 app.get('/:product_sku/similar', (req, res) => {
-  db.getOne(req.params.product_sku, (err1, data1) => {
-    if (err1) {
-      res.status(500).send(err1.message);
+  db.getShoeInfo(req.params.product_sku, (err, shoeInfo) => {
+    if (err) {
+      res.status(500).send(err.message);
     } else {
-      const opts = [data1[0].product_line, data1[0].product_cat, data1[0].product_sku];
-      db.getImagesOfTwelveSimilar(opts, (err2, data2) => {
+      db.getRelById(shoeInfo.rows[0].product_line, shoeInfo.rows[0].product_cat, shoeInfo.rows[0].product_sku, (err2, results) => {
         if (err2) {
-          res.status(500).send(err2.message);
+          res.status(500).send(err2);
         } else {
-          res.send(data2);
+          res.status(200).send(results.rows);
         }
       });
     }
   });
 });
 
+// legacy GET route (for legacy DB)
+// app.get('/:product_sku/similar', (req, res) => {
+//   model.Shoe.getOne(req.params.product_sku, (err1, data1) => {
+//     if (err1) {
+//       res.status(500).send(err1.message);
+//     } else {
+//       const opts = [data1[0].product_line, data1[0].product_cat, data1[0].product_sku];
+//       model.Shoe.getImagesOfTwelveSimilar(opts, (err2, data2) => {
+//         if (err2) {
+//           res.status(500).send(err2.message);
+//         } else {
+//           res.send(data2);
+//         }
+//       });
+//     }
+//   });
+// });
+
+// POST, PUT, DELETE routes for legacy DB
 app.post('/:product_sku/similar', (req, res) => {
   db.addOne([req.params.product_sku, req.body.image_view, req.body.image_source], (err) => {
     if (err) {
