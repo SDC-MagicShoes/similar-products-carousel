@@ -2,12 +2,14 @@ const newrelic = require('newrelic');
 const express = require('express');
 const path = require('path');
 const compress = require('compression');
+const cors = require('cors');
 const db = require('../database_postgres/index.js');
 
 const app = express();
 const port = 8081;
 
 app.use(compress());
+app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 

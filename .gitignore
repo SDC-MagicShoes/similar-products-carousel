@@ -32,3 +32,5 @@ newrelic_agent.log
 
 ## stress test screenshots ##
 stressTest_SS/
+
+*.pem
