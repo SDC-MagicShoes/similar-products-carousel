@@ -12,9 +12,11 @@ app.use(compress());
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+app.use('/loaderio-bdef7994cae5a37ce60eacf86d464eae.txt', express.static('loaderio-bdef7994cae5a37ce60eacf86d464eae.txt'));
 
 app.get('/:product_sku/similar', (req, res) => {
-  db.getShoeInfo(req.params.product_sku, (err, shoeInfo) => {
+  let product_sku = Math.floor(Math.random() * (10000001 - 9000000)) + 9000000;
+  db.getShoeInfo(product_sku, (err, shoeInfo) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
@@ -28,6 +30,7 @@ app.get('/:product_sku/similar', (req, res) => {
     }
   });
 });
+
 
 // legacy GET route (for legacy DB)
 // app.get('/:product_sku/similar', (req, res) => {

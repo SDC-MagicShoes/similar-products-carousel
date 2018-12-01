@@ -34,3 +34,6 @@ newrelic_agent.log
 stressTest_SS/
 
 *.pem
+
+loaderio-bdef7994cae5a37ce60eacf86d464eae.txt
+notes.txt
