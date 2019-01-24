@@ -5,7 +5,6 @@ const imageFile = fs.createWriteStream('./csvImageSeed.csv');
 const prodLines = ['Mens Shoe', 'Womens Shoe', 'Mens Basketball Shoe', 'Womens Basketball Shoe'];
 let i = 1;
 let j = 1;
-let k = 1;
 
 const generateShoes = (num, callback) => {
   while (i < num + 1) {
@@ -21,8 +20,8 @@ const generateShoes = (num, callback) => {
     let rvwCnt = Math.floor(Math.random() * 80 - 40);
     rvwCnt = rvwCnt < 0 ? 0 : rvwCnt;
 
-    let shoe = `${i},${i},${priceFull},${priceSale},${prodCat},${prodColors},${prodLine},MagicShoes_${i},${rvwCnt}\n`;
-    i++;
+    const shoe = `${i},${i},${priceFull},${priceSale},${prodCat},${prodColors},${prodLine},MagicShoes_${i},${rvwCnt}\n`;
+    i += 1;
     if (!shoeFile.write(shoe)) {
       return;
     }
@@ -34,8 +33,8 @@ const generateShoes = (num, callback) => {
 const generateImages = (num, callback) => {
   while (j < num + 1) {
     const randIdx = Math.floor(Math.random() * 1000) + 1;
-    let image = `${j},https://s3-us-west-1.amazonaws.com/shoepicturesmock/${randIdx}.jpg,${j}\n`;
-    j++;
+    const image = `${j},https://s3-us-west-1.amazonaws.com/shoepicturesmock/${randIdx}.jpg,${j}\n`;
+    j += 1;
     if (!imageFile.write(image)) {
       return;
     }
@@ -68,5 +67,3 @@ const dummy = () => {
 writeHeaders();
 generateShoes(10000000, dummy);
 generateImages(10000000, dummy);
-
-//10000000
