@@ -35,7 +35,6 @@
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mysql": "^2.16.0",
     "newrelic": "^4.11.0",
     "pg": "^7.6.1",
     "prop-types": "^15.6.2",
