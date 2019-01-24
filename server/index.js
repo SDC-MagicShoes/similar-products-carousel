@@ -1,6 +1,4 @@
-const newrelic = require('newrelic');
 const express = require('express');
-const path = require('path');
 const compress = require('compression');
 const cors = require('cors');
 const db = require('../database_postgres/index.js');
@@ -12,11 +10,10 @@ app.use(compress());
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/loaderio-bdef7994cae5a37ce60eacf86d464eae.txt', express.static('loaderio-bdef7994cae5a37ce60eacf86d464eae.txt'));
 
 app.get('/:product_sku/similar', (req, res) => {
-  let product_sku = Math.floor(Math.random() * (10000001 - 9000000)) + 9000000;
-  db.getShoeInfo(product_sku, (err, shoeInfo) => {
+  const productSku = Math.floor(Math.random() * (10000001 - 9000000)) + 9000000;
+  db.getShoeInfo(productSku, (err, shoeInfo) => {
     if (err) {
       res.status(500).send(err.message);
     } else {
