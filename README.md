@@ -28,15 +28,15 @@ click on a product card to navigate to that item's full product page.
 
 3.1]   From root folder, run csv file generation script:
 
-        bash$ `node database_postgres/generateCSV.js`
+    bash$ `node database_postgres/generateCSV.js`
 
 3.2]   From root folder, run schema file: 
 
-        bash$ `psql -U postgres < schema.sql`
+    bash$ `psql -U postgres < schema.sql`
         
 4] serve application 
 
-    $bash `npm run start`
+    bash$ `npm run start`
     
 5] check localhost 
 
