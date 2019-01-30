@@ -1,3 +1,4 @@
+const newrelic = require('newrelic');
 const express = require('express');
 const compress = require('compression');
 const cors = require('cors');
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-app.get('/:product_sku/similar', (req, res) => {
+app.get('/:product_sku/similar', cache, (req, res) => {
   const productSku = Math.floor(Math.random() * (10000001 - 9000000)) + 9000000;
   db.getShoeInfo(productSku, (err, shoeInfo) => {
     if (err) {
@@ -19,7 +20,7 @@ app.get('/:product_sku/similar', (req, res) => {
     } else {
       db.getRelById(shoeInfo.rows[0].product_line, shoeInfo.rows[0].product_cat, shoeInfo.rows[0].product_sku, (err2, results) => {
         if (err2) {
-          res.status(500).send(err2);
+          res.status(500).send(err2.message);
         } else {
           res.status(200).send(results.rows);
         }

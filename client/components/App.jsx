@@ -25,7 +25,8 @@ class App extends React.Component {
 
   requestImgs() {
     axios.get(`${this.state.productSku}/similar`)
-      .then(res => this.setState({ products: res.data }));
+      .then(res => this.setState({ products: res.data }))
+      .catch(err => console.log(err.response));
   }
 
   slideLeft() {

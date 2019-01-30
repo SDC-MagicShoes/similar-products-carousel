@@ -23,9 +23,6 @@ database_postgres/csvImageSeed.csv
 database_postgres/csvShoeSeed.csv
 database_mongoDB/jsonShoes.json
 
-## query result screenshots ##
-query_results_SS/
-
 ## newrelic ##
 newrelic.js
 newrelic_agent.log
@@ -33,7 +30,9 @@ newrelic_agent.log
 ## stress test screenshots ##
 stressTest_SS/
 
+## loader.io ##
+loader*.txt
+
 *.pem
 
-loaderio-bdef7994cae5a37ce60eacf86d464eae.txt
 notes.txt

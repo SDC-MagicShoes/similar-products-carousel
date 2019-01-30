@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS images (
   product_sku integer NOT NULL
 );
 
-\COPY shoes FROM 'C:\\Users\\hoosi\\Hack Reactor\\similar-products-carousel\\database_postgres\\csvShoeSeed.csv' DELIMITER ',' CSV HEADER;
-\COPY images FROM 'C:\\Users\\hoosi\\Hack Reactor\\similar-products-carousel\\database_postgres\\csvImageSeed.csv' DELIMITER ',' CSV HEADER;
+\COPY shoes FROM './csvShoeSeed.csv' DELIMITER ',' CSV HEADER;
+\COPY images FROM './csvImageSeed.csv' DELIMITER ',' CSV HEADER;
