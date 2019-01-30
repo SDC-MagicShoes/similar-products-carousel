@@ -1,5 +1,6 @@
 ### similar-products-carousel
-module for displaying similar products in nike air jordan clone
+Module for displaying similar products in nike air jordan clone
+This fork revamps the backend database for the original module
 
 # USAGE
 click left and right arrows to adjust position of carousel.
@@ -13,7 +14,7 @@ click on a product card to navigate to that item's full product page.
 - Delete  Delete('/:product_sku/similar') Deletes a related image for a shoe.
 
 # REQUIREMENTS
-0] use node -v: 10.12.0
+0] use node -v: 10.14.0
 
 1] install dependencies: 
 
@@ -25,39 +26,19 @@ click on a product card to navigate to that item's full product page.
     
 3] (seed test database)
 
-3.0]   login to mysql using your root account: 
+3.1]   From root folder, run csv file generation script:
 
-        bash$ `mysql -u root (-p your_password)`
-    
-3.1]   create new db user with password: 
+        bash$ `node database_postgres/generateCSV.js`
 
-        mysql> `CREATE USER warpv@localhost IDENTIFIED BY 'justdoit';`
-    
-3.2]   set access to airjordans database: 
+3.2]   From root folder, run schema file: 
 
-        mysql> `GRANT ALL PRIVILEGES ON airjordans.* TO warpv@localhost IDENTIFIED BY 'justdoit';`
-    
-3.3]   flush priveleges: 
-
-        mysql> `FLUSH PRIVILEGES;`
-    
-3.4]  create first instance of database
-
-       mysql> `CREATE DATABASE IF NOT EXISTS airjordans`
-
-3.5]  exit shell:
-
-        mysql> `quit;`
-
-3.6]  run seeding script:
-
-        bash$ `npm run seed`
-
+        bash$ `psql -U postgres < schema.sql`
+        
 4] serve application 
 
     $bash `npm run start`
     
 5] check localhost 
 
-    url <`http://127.0.0.1:3001/`>
+    url <`http://127.0.0.1:8081/`>
     
